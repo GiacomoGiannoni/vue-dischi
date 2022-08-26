@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <MyHeader/>
+    <MyHeader />
+    <AlbumList />
   </div>
 </template>
 
 <script>
-import MyHeader from './components/MyHeader';
+import MyHeader from './components/MyHeader.vue';
+import AlbumList from './components/AlbumList.vue';
 
 export default {
   name: 'App',
   components: {
     MyHeader,
-
+    AlbumList,
   }
 }
 </script>
