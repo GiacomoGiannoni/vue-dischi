@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import MyHeader from './components/MyHeader.vue';
-import AlbumList from './components/AlbumList.vue';
+import MyHeader from './components/MyHeader';
+import AlbumList from './components/AlbumList';
 
 export default {
   name: 'App',
   components: {
     MyHeader,
-    AlbumList,
+    AlbumList
   }
 }
 </script>

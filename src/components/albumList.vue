@@ -1,47 +1,45 @@
 <template>
-    <div class="container">
+    <main class="container mt-5">
         <LoadInProgress v-if="loadInProgress" />
-        <div v-else class="row row-cols-4 g-3">
-            <SingleAlbum  v-for="album in albumList" :key="album.id" :album="album" />
+        <div class="d-flex flex-wrap">
+            <MyDisc
+                v-for="(discItem, index) in discs"
+                :key="index"
+                :disc="discItem"
+            />
         </div>
-    </div>
+    </main>
 </template>
 
 <script>
 import axios from 'axios';
-import LoadInProgress from './LoadInProgress.vue';
-import SingleAlbum from './SingleAlbum.vue';
+import LoadInProgress from './LoadInProgress';
+import MyDisc from './MyDisc';
 
 export default {
     name: 'AlbumList',
     components: {
-        SingleAlbum,
-        LoadInProgress
-    },
+    MyDisc,
+    LoadInProgress,
+},
     data() {
         return {
-            albumList: [],
-            endpoint: 'https://flynn.boolean.careers/exercises/api/array/music',
+            discs: [],
             loadInProgress: true
         }
     },
     created() {
-        this.getAlbum();
-    },
-    methods: {
-        getAlbum() {
-            let that = this;
-            axios.get(this.endpoint)
-            .then(function (response) {
-                that.albumList = response.data;
-                that.loadInProgress = false;
+        axios
+            .get("https://flynn.boolean.careers/exercises/api/array/music")
+            .then((res) => {
+                this.discs = res.data.response;
+                this.loadInProgress = false;
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
-                that.loadInProgress = false;
+                this.loadInProgress = false;
             });
-        }
-    }
+    },
 }
 
 </script>
