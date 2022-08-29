@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <MyHeader :propsPassoGeneriASecondSon="generi" @funValoreFromSelect="funSelectMetodoPadre" />
-    <AlbumList @spostoGeneriSonToDad="lavoroGeneriInDadFun" :propsPassoGeneriAFirstSon="valoreSalvatoInPadre" />
+    <AlbumList @spostoGeneriSonToDad="lavoroGeneriInDadFun" :propsPassoGeneriAFirstSon="generiSave"/>
   </div>
 </template>
 
@@ -17,8 +17,8 @@ export default {
   },
   data() {
     return {
-      valoreSalvatoInPadre: '',
-      generi: []
+      generiSave: '',
+      generi: [],
     }
   },
   methods: {
@@ -26,8 +26,8 @@ export default {
       this.generi = thisSalvoGeneri;
     },
     funSelectMetodoPadre(valoreFromSelect) {
-      this.valoreSalvatoInPadre = valoreFromSelect
-    }
+      this.generiSave = valoreFromSelect
+    },
   }
 }
 </script>
