@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <MyHeader />
-    <AlbumList />
+    <MyHeader :propsPassoGeneriASecondSon="generi" @funValoreFromSelect="funSelectMetodoPadre" />
+    <AlbumList @spostoGeneriSonToDad="lavoroGeneriInDadFun" :propsPassoGeneriAFirstSon="valoreSalvatoInPadre" />
   </div>
 </template>
 
@@ -14,6 +14,20 @@ export default {
   components: {
     MyHeader,
     AlbumList
+  },
+  data() {
+    return {
+      valoreSalvatoInPadre: '',
+      generi: []
+    }
+  },
+  methods: {
+    lavoroGeneriInDadFun(thisSalvoGeneri) {
+      this.generi = thisSalvoGeneri;
+    },
+    funSelectMetodoPadre(valoreFromSelect) {
+      this.valoreSalvatoInPadre = valoreFromSelect
+    }
   }
 }
 </script>

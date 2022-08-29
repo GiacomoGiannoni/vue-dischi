@@ -1,10 +1,10 @@
 <template>
    <div class="disc p-3 text-center">
         <div class="p-3">
-            <img :src="disc.poster" :alt="disc.name" class="img-fluid mb-3"/>
-            <p class="title text-uppercase fw-bold">{{disc.title}}</p>
-            <p class="author lead mb-0">{{disc.author}}</p>
-            <p class="year">{{disc.year}}</p>
+            <img :src="element.poster" :alt="element.name" class="img-fluid mb-3"/>
+            <p class="title text-uppercase fw-bold">{{element.title}}</p>
+            <p class="author lead mb-0">{{element.author}}</p>
+            <p class="year">{{element.year}}</p>
         </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 export default {
     name: 'MyDisc',
     props: {
-        disc: Object,
+        element: Object,
     }
 }
 </script>
